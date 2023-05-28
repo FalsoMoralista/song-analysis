@@ -15,9 +15,10 @@ import { SongStats } from "../interfaces/song";
 interface BarChartProps {    
     dataProp: number[];
     labelsProp: string[];
+    selectedMeasure: number;
 };
 
-const BarChart: React.FC<BarChartProps> = ({dataProp, labelsProp}) => {
+const BarChart: React.FC<BarChartProps> = ({dataProp, labelsProp, selectedMeasure}) => {
     // Used to register plugins, axis types or chart types globally to all your charts.
     ChartJS.register(
         CategoryScale,
@@ -28,7 +29,24 @@ const BarChart: React.FC<BarChartProps> = ({dataProp, labelsProp}) => {
         Legend
     );
 
-    const options = {
+    let text:string = "";
+    let label: string = "";
+    let backgroundColor:string = ""; 
+
+    
+    if (selectedMeasure === 0){ //TODO: FIX
+      text = "Lexical Richness"; 
+      label = "Average Lexical Richness by time period";
+      backgroundColor = "rgba(142,124,195, 0.7)";
+    }  
+    else{
+      text = "Entropy";
+      label = "Average Entropy by time period";
+      backgroundColor = "rgba(22, 83, 126, 0.7)";
+    }      
+    
+
+    let options = {
         elements:{
             bar: {
                 borderWidth: 2,
@@ -41,18 +59,18 @@ const BarChart: React.FC<BarChartProps> = ({dataProp, labelsProp}) => {
           },
           title: {
             display: true,
-            text: 'Lexical Richness', // get via props
+            text: text, // get via props
           },
         },
       };
       
-    const data = {
+    let data = {
         labels: labelsProp,
         datasets: [{
-            label:'Average Lexical Richness', // get via props
+            label:label, // get via props
             data: dataProp,
             borderColor: 'rgb(0, 0, 0)',
-            backgroundColor: 'rgba(142,124,195, 0.7)' // set differently for each measure
+            backgroundColor: backgroundColor // set differently for each measure
         }]
       }
       return <Bar options={options} data={data} />;

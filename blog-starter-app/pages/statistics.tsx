@@ -8,11 +8,13 @@ import Song, { SongResponse, SongStats, SongStatsResponse } from "../interfaces/
 import axios from "axios";
 import { YearInputs } from "../components/YearInputs";
 import BarChart from "../components/barchart";
+import SplitSlider from "../components/splitSlider";
 
 export default function Statistics(){
-
+    const [selectedMeasure, setSelectedMeasure] = useState(null);
     const [minYearSelected, setMinYearSelected] = useState(null);
     const [maxYearSelected, setMaxYearSelected] = useState(null);
+    const [splitLength, setsplitLength] = useState(null);
 
     const [songStats, setSongStats] = useState<SongStats[]>([]);
     
@@ -20,15 +22,23 @@ export default function Statistics(){
     const [labelsProp, setLabelsProp] = useState<string[]>([]);
 
     const fetchSongs = async () => {     
-        let t : number = 2;
 
+        let src: string = '';
+        if (selectedMeasure === null){
+            alert("Select a measure");
+            return;
+        }else if (selectedMeasure === 0){
+            src = "get_average_lexical_complexity";
+        }else{
+            src = "get_average_entropy";
+        }
         const { data } = await axios.post<SongStatsResponse>(
             "https://split-by-interval-xg7jaquagq-rj.a.run.app",
             {
-                resource: "get_average_lexical_complexity",
+                resource: src,
                 min: minYearSelected,
                 max: maxYearSelected,   
-                timestamp: t
+                timestamp: splitLength  
             }
         );        
         setSongStats(data.content);
@@ -40,7 +50,7 @@ export default function Statistics(){
         }
         setDataProp(d);
         setLabelsProp(s);
-        console.log(dataProp);
+        //console.log(dataProp);
     };
 
     const content = `
@@ -60,9 +70,14 @@ export default function Statistics(){
                 minYear={minYearSelected}
                 onMaxYearChange={setMaxYearSelected}
                 onMinYearChange={setMinYearSelected}
+                onSelectionChange={setSelectedMeasure}
+                selectedMeasure={selectedMeasure}
             />
+            Year split:
+            <SplitSlider setSplitLenght={setsplitLength}/>
+            
             <Container>
-                <BarChart labelsProp={labelsProp} dataProp={dataProp}></BarChart>
+                <BarChart labelsProp={labelsProp} dataProp={dataProp} selectedMeasure={selectedMeasure}></BarChart>
             </Container>
             </Container>
         </Layout>
