@@ -68,7 +68,7 @@ export default function AnalyzeMySong(){
             <Container>
             <Intro title="Analyze My Song"> </Intro>
             <div className="mb-8 md:mb-12">
-                <CoverImage title={"teste"} src={"/assets/blog/dynamic-routing/IMG_1932.jpg"} slug={"imageLink"} />
+                <CoverImage title={"teste"} src={"/assets/blog/dynamic-routing/cover1.jpg"} slug={"imageLink"} />
             </div>
             <form>
                 <div className="lg:text-xl">
