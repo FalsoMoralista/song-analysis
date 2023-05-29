@@ -33,6 +33,21 @@ export default function Index({ allPosts }: Props) {
       related to concepts that may involve music theory (e.g., harmony, rythm), lyrical aspects such as poetic synthesis, etc.`
     },
     {
+      title: "Songs Complexity Analysis",
+      content: "testesst",
+      author: {
+        name: "Luciano Dourado",
+        picture:
+        "assets/blog/authors/author.JPG",
+      },
+      navigateTo: "statistics",
+      coverImage: '/assets/blog/dynamic-routing/IMG_1932.jpg',
+      date: '2023-05-26T00:00:00',
+      ogImage: {url:'/assets/blog/preview/cover.jpg'},
+
+      excerpt:' '      
+    },
+    {
       title: "Search songs",
       content: "testesst",
       author: {
@@ -47,23 +62,7 @@ export default function Index({ allPosts }: Props) {
 
       excerpt:`Check the list of songs available in the database.`
       
-    },  
-    {
-      title: "Analyze Songs Complexity Throughout the Years",
-      content: "testesst",
-      author: {
-        name: "Luciano Dourado",
-        picture:
-        "assets/blog/authors/author.JPG",
-      },
-      navigateTo: "statistics",
-      coverImage: '/assets/blog/dynamic-routing/IMG_1932.jpg',
-      date: '2023-05-26T00:00:00',
-      ogImage: {url:'/assets/blog/preview/cover.jpg'},
-
-      excerpt:'asdasd'
-      
-    },      
+    },        
     {
       title: "My song entropy",
       content: "testesst",
@@ -73,7 +72,7 @@ export default function Index({ allPosts }: Props) {
         "assets/blog/authors/author.JPG",
       },
       navigateTo: "analyze_my_song",
-      coverImage: '/assets/blog/dynamic-routing/cover1.jpg',
+      coverImage: '/assets/blog/dynamic-routing/entropy2.png',
       date: '2023-05-26T00:00:00',
       ogImage: {url:'/assets/blog/preview/cover.jpg'},
 

@@ -5,6 +5,7 @@ import CoverImage from "../components/cover-image";
 import Intro from "../components/intro";
 import axios from "axios";
 import { useState } from "react";
+import Header from "../components/header";
 
 export type AnalysisResponse = {
     content: Analysis;
@@ -66,9 +67,10 @@ export default function AnalyzeMySong(){
             <Head><title>{`Analyze My Song`}</title></Head>
 
             <Container>
+            <Header></Header>
             <Intro title="Analyze My Song"> </Intro>
             <div className="mb-8 md:mb-12">
-                <CoverImage title={"teste"} src={"/assets/blog/dynamic-routing/cover1.jpg"} slug={"imageLink"} />
+                <CoverImage title={"teste"} src={"/assets/blog/dynamic-routing/entropy2.png"} slug={"imageLink"} />
             </div>
             <form>
                 <div className="lg:text-xl">

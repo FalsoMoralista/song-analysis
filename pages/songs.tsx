@@ -8,6 +8,7 @@ import axios from "axios";
 import { Song, SongResponse } from "../interfaces/song";
 import MusicCard from "../components/songCard";
 import { SearchBar } from "../components/searchBar";
+import Header from "../components/header";
 
 
 export default function Songs() {
@@ -42,6 +43,7 @@ export default function Songs() {
         <title>{`Song Dataset`}</title>
       </Head>
       <Container>
+        <Header></Header>
         <Intro title="Songs Available"> </Intro>
        
         <SearchBar

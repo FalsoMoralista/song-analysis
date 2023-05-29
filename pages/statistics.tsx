@@ -9,6 +9,7 @@ import axios from "axios";
 import { YearInputs } from "../components/YearInputs";
 import BarChart from "../components/barchart";
 import SplitSlider from "../components/splitSlider";
+import Header from "../components/header";
 
 export default function Statistics(){
     const [selectedMeasure, setSelectedMeasure] = useState(null);
@@ -57,6 +58,7 @@ export default function Statistics(){
         <Layout >
             <Head><title>{`Song Statistics`}</title> </Head>
             <Container>     
+              <Header></Header>
               <Intro title="Songs Statistics"> </Intro>
               <div className="pl-60">
                 <div>

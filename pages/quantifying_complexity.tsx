@@ -6,11 +6,14 @@ import PostBody from "../components/post-body";
 import 'katex/dist/katex.min.css'
 import Latex from 'react-latex-next'
 import CoverImage from "../components/cover-image";
+import Header from "../components/header";
 
 export default function QuantifyingComplexity(){  
   return (
     <Layout>
+      
     <Container>
+    <Header></Header>
       <Intro title="Sailing in Dark Waters: Quantifying Music Complexity"> </Intro>
       <div className="mb-8 md:mb-12">
         <CoverImage title={"teste"} src={"/assets/blog/dynamic-routing/IMG_1923.jpg"} slug={"imageLink"} />
