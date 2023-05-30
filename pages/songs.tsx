@@ -51,7 +51,7 @@ export default function Songs() {
             let updatedSongs: Song[] = [];
             for (const song of songs){
               // .toString().toLowerCase().indexOf(filterText.toLowerCase()
-              if (!(song.artist.indexOf(query.toLowerCase()) === -1) || !(song.song_title.toLowerCase().indexOf(query.toLowerCase()) === -1)){
+              if (!(song.artist.toLowerCase().indexOf(query.toLowerCase()) === -1) || !(song.song_title.toLowerCase().indexOf(query.toLowerCase()) === -1)){
                 updatedSongs.push(song); // Not working
               }
             }
